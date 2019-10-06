@@ -30,6 +30,7 @@
         ]
       }
     ],
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "no-underscore-dangle": "off"
   }
 }
