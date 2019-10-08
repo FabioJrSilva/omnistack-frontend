@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../../services/api';
 import './style.css';
 
@@ -8,11 +9,9 @@ export default function Dashboard() {
   useEffect(() => {
     async function loadSpots() {
       const userId = localStorage.getItem('user_id');
-      console.log(userId);
       const response = await api.get('/dashboard', {
         headers: { user_id: userId }
       });
-      console.log(response.data);
 
       setSpots(response.data);
     }
@@ -30,6 +29,10 @@ export default function Dashboard() {
           </li>
         ))}
       </ul>
+
+      <Link to="/new">
+        <button type="button" className="btn">Cadastrar spots!</button>
+      </Link>
     </>
   );
 }
